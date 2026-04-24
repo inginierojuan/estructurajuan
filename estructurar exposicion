@@ -1,0 +1,39 @@
+package com.mycompany.listavsarreglo.java; 
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class ListaVsArregloJava { 
+
+    public static void main(String[] args) {
+        //  1. configuracion
+        int n = 50000; 
+        long inicio, fin;
+        
+        System.out.println("LABORATORIO: LISTA VS ARREGLO ");
+        System.out.println("Insertando " + n + " elementos al inicio...");
+
+        //  2. prueba arreglo (ArrayList)
+        List<Integer> arreglo = new ArrayList<>();
+        inicio = System.currentTimeMillis();
+        
+        for (int i = 0; i < n; i++) {
+            arreglo.add(0, i); // Desplazamiento de memoria (Lento)
+        }
+        
+        fin = System.currentTimeMillis();
+        System.out.println("Tiempo ArrayList (Arreglo): " + (fin - inicio) + " ms");
+
+        // 3 prueba lista (LinkedList) 
+        List<Integer> lista = new LinkedList<>();
+        inicio = System.currentTimeMillis();
+        
+        for (int i = 0; i < n; i++) {
+            lista.add(0, i); // Uso de punteros (Rápido)
+        }
+        
+        fin = System.currentTimeMillis();
+        System.out.println("Tiempo LinkedList (Lista): " + (fin - inicio) + " ms");
+    }
+}
